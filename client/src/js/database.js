@@ -27,14 +27,19 @@ export const putDb = async (content) => {
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
-  console.log('Use GET request');
-
+  console.log('Use GET request to get from the database.');
+  // Open the database: 
   const jateDb = await openDB('jate', 1); 
+  // Set up a transaction, use readonly to get data: 
   const tx = jateDb.transaction('jate', 'readonly');
+  // Store the database by using objectStore method.
   const store = tx.objectStore('jate');
+  // Use store.get method to get the item with key "1".
   const request = store.get(1); 
+  // Awaiting the request and save that into the result.
   const result = await request; 
 
+  // If we have the result, the return result.value; If not, console.log "Data not found"
   result
     ? console.log('Retrieved data from the database', result.value)
     : console.log('Data not found'); 
