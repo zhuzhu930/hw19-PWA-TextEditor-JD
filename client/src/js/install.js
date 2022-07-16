@@ -8,10 +8,11 @@ window.addEventListener('beforeinstallprompt', (e) => {
     // Stash the event so it can be triggered later.
     deferredPrompt = e; 
     // Update UI to notify the user they can install.
-    butInstall.classList.toggle('hidden', false);
+    butInstall.classList.toggle('hidden', false); 
+});
 
-    // TODO: Implement a click event handler on the `butInstall` element
-    butInstall.addEventListener('click', (e) => {
+// TODO: Implement a click event handler on the `butInstall` element
+butInstall.addEventListener('click', (e) => {
 
     // const promptE = window.deferredPrompt; 
 
@@ -36,9 +37,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = null; 
         });
     });
-});
-
-
 
 // TODO: Add an handler for the `appinstalled` event
 window.addEventListener('appinstalled', (e) => {
